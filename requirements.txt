@@ -1,0 +1,15 @@
+streamlit
+google-generativeai
+langchain
+langchain-google-genai
+langchain-community
+pypdf2
+pdfplumber
+python-docx
+python-pptx
+faiss-cpu
+sentence-transformers
+spacy
+nltk
+python-dotenv
+tiktoken
