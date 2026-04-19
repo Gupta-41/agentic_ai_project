@@ -13,3 +13,4 @@ spacy
 nltk
 python-dotenv
 tiktoken
+groq
