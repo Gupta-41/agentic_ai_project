@@ -6,11 +6,16 @@ import streamlit as st
 load_dotenv()
 
 def get_client():
-    api_key = os.getenv("GROQ_API_KEY")
+    try:
+        api_key = st.secrets["GROQ_API_KEY"]
+    except:
+        api_key = os.getenv("GROQ_API_KEY")
+    
     if not api_key:
-        st.error("GROQ_API_KEY not found in .env file!")
+        st.error("GROQ_API_KEY not found!")
         return None
     return Groq(api_key=api_key)
+
 
 def ask_gemini(prompt, context_chunks):
     client = get_client()
@@ -39,6 +44,7 @@ Answer clearly using the context above. Mention the source document."""
     except Exception as e:
         return f"Error getting response: {str(e)}"
 
+
 def generate_study_plan(topics, available_days):
     client = get_client()
     if not client:
@@ -54,6 +60,7 @@ For each day include: topic, key concepts, practice questions, estimated time.""
         return response.choices[0].message.content
     except Exception as e:
         return f"Error: {str(e)}"
+
 
 def identify_weak_areas(question_history):
     client = get_client()
