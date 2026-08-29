@@ -36,7 +36,7 @@ STUDENT'S QUESTION:
 Answer clearly using the context above. Mention the source document."""
     try:
         response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="openai/gpt-oss-120b",
             messages=[{"role": "user", "content": full_prompt}],
             max_tokens=500
         )
@@ -53,7 +53,7 @@ def generate_study_plan(topics, available_days):
 For each day include: topic, key concepts, practice questions, estimated time."""
     try:
         response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="openai/gpt-oss-120b",
             messages=[{"role": "user", "content": prompt}],
             max_tokens=500
         )
@@ -72,7 +72,7 @@ def identify_weak_areas(question_history):
 Identify weak topics and recommend what to study next."""
     try:
         response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="openai/gpt-oss-120b",
             messages=[{"role": "user", "content": prompt}],
             max_tokens=500
         )
